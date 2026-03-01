@@ -1,0 +1,21 @@
+global:
+  # 采集频率：每15秒采集一次指标
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+# 采集配置：指定要监控的目标
+scrape_configs:
+  # 监控Prometheus自身
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  # 监控金铲铲机器人（如果你的机器人暴露了指标端口，比如8000）
+  - job_name: 'jinchanchan-bot'
+    static_configs:
+      - targets: ['jinchanchan-bot:8000']  # 容器名:端口（容器内互通）
+
+  # 监控EC2主机（需额外部署node-exporter，可选加分项）
+  - job_name: 'ec2-node'
+    static_configs:
+      - targets: ['host.docker.internal:9100']

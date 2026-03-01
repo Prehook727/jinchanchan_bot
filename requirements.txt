@@ -1,0 +1,7 @@
+# 核心依赖
+python-telegram-bot==22.5  # Telegram机器人框架（若用本地版可注释）
+pymysql==1.1.0             # 连接AWS RDS MySQL
+python-dotenv==1.0.1       # 读取环境变量
+urllib3==2.6.2             # 适配LLM API请求
+prometheus-client==0.20.0  # 向Prometheus暴露监控指标（可选，加分项）
+requests==2.31.0           # bot核心
